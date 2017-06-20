@@ -1,10 +1,7 @@
 # golang_ys
 用golang写的一个压缩工作
 
-# ys命令帮助
-USAGE: compress command [arguments] ...  
-
-The commands are:  
-	type	compress type[zip, rar, tar].  
-	compress dir	compress dir or compress file.  
-	saved filename	saved filename.  
+# ys命令使用
+go build -o ys main.go生成ys命令文件，将ys命令放在环境变量目录中即可
+ys type[zip] dir filename  
+example: ys zip /data data.zip
