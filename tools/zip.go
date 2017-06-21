@@ -21,14 +21,14 @@ func Zip(path string, name string) {
 	w := zip.NewWriter(buf)
 
 	// 将文件加入压缩文档
-	all_files := make([]File, 0)
+	allFiles := make([]File, 0)
 	files := GetFileList(path)
 	for _, full_file := range files {
 		dat, _ := ioutil.ReadFile(full_file)
-		all_files = append(all_files, File{full_file, string(dat)})
+		allFiles = append(allFiles, File{full_file, string(dat)})
 	}
 
-	for _, file := range all_files {
+	for _, file := range allFiles {
 		f, err := w.Create(file.Name)
 		if err != nil {
 			log.Fatal(err)
