@@ -1,4 +1,4 @@
-# golang_ys
+# ys
 用golang写的一个压缩命令
 
 # ys命令使用
