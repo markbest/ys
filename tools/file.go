@@ -1,12 +1,12 @@
 package tools
 
 import (
+	"fmt"
 	"os"
 	"path/filepath"
-	"fmt"
 )
 
-func GetFileList(path string) ([]string) {
+func GetFileList(path string) []string {
 	files := make([]string, 0)
 	PthSep := string(os.PathSeparator)
 	err := filepath.Walk(path, func(path string, f os.FileInfo, err error) error {
@@ -14,7 +14,7 @@ func GetFileList(path string) ([]string) {
 			return err
 		}
 		if f.IsDir() {
-			files = append(files, path + PthSep)
+			files = append(files, path+PthSep)
 		} else {
 			files = append(files, path)
 		}

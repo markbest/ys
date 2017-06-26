@@ -1,11 +1,11 @@
 package tools
 
 import (
-	"bytes"
 	"archive/tar"
+	"bytes"
+	"io/ioutil"
 	"log"
 	"os"
-	"io/ioutil"
 )
 
 func Tar(path string, name string) {

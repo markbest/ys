@@ -1,11 +1,11 @@
 package tools
 
 import (
-	"bytes"
 	"archive/zip"
+	"bytes"
+	"io/ioutil"
 	"log"
 	"os"
-	"io/ioutil"
 )
 
 type File struct {

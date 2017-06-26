@@ -1,9 +1,9 @@
 package main
 
 import (
-	"yasuo/tools"
-	"os"
 	"fmt"
+	"os"
+	"yasuo/tools"
 )
 
 var Usage = func() {
@@ -31,13 +31,13 @@ func main() {
 			fmt.Println("USAGE: ys zip <filename>")
 			return
 		}
-		tools.Zip(args[2], args[3]);
+		tools.Zip(args[2], args[3])
 	case "tar":
 		if len(args) != 4 {
 			fmt.Println("USAGE: ys tar <filename>")
 			return
 		}
-		tools.Tar(args[2], args[3]);
+		tools.Tar(args[2], args[3])
 	default:
 		Usage()
 	}
