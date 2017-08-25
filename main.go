@@ -1,8 +1,8 @@
 package main
 
 import (
+	"flag"
 	"fmt"
-	"os"
 	"yasuo/tools"
 )
 
@@ -14,30 +14,32 @@ var Usage = func() {
 }
 
 func main() {
-	args := os.Args
-	if args == nil || len(args) < 2 {
+	flag.Parse()
+	ch := flag.Args()
+
+	if ch == nil || len(ch) == 0 {
 		Usage()
 		return
 	}
 
-	if args[1] == "help" || args[1] == "h" {
+	if ch[0] == "help" || ch[0] == "h" {
 		Usage()
 		return
 	}
 
-	switch args[1] {
+	switch ch[0] {
 	case "zip":
-		if len(args) != 4 {
+		if len(ch) != 3 {
 			fmt.Println("USAGE: ys zip <filename>")
 			return
 		}
-		tools.Zip(args[2], args[3])
+		tools.Zip(ch[1], ch[2])
 	case "tar":
-		if len(args) != 4 {
+		if len(ch) != 3 {
 			fmt.Println("USAGE: ys tar <filename>")
 			return
 		}
-		tools.Tar(args[2], args[3])
+		tools.Tar(ch[1], ch[2])
 	default:
 		Usage()
 	}
