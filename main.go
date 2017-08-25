@@ -15,31 +15,31 @@ var Usage = func() {
 
 func main() {
 	flag.Parse()
-	ch := flag.Args()
+	args := flag.Args()
 
-	if ch == nil || len(ch) == 0 {
+	if len(args) < 1 {
 		Usage()
 		return
 	}
 
-	if ch[0] == "help" || ch[0] == "h" {
+	if args[0] == "help" || args[0] == "h" {
 		Usage()
 		return
 	}
 
-	switch ch[0] {
+	switch args[0] {
 	case "zip":
-		if len(ch) != 3 {
+		if len(args) != 3 {
 			fmt.Println("USAGE: ys zip <filename>")
 			return
 		}
-		tools.Zip(ch[1], ch[2])
+		tools.Zip(args[1], args[2])
 	case "tar":
-		if len(ch) != 3 {
+		if len(args) != 3 {
 			fmt.Println("USAGE: ys tar <filename>")
 			return
 		}
-		tools.Tar(ch[1], ch[2])
+		tools.Tar(args[1], args[2])
 	default:
 		Usage()
 	}
